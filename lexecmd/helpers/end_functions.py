@@ -44,10 +44,32 @@ def rand_dex():
     r=random.randint(1, 1025)
     pok=pypokedex.get(dex = r)
     print("The chosen pokemon will be",pok.name,"of the pokedex number",r)
+    
+def show_todo():
+    try:
+        with open("../private/private_todo_list.md", "r") as file:
+            # Read the file and store it in a list
+            content = file.read()
+            content = content.split("\n")
+        for i, j in enumerate(content):
+            print(f"- [{i}] {j}")
+            
+    except FileNotFoundError:
+        error("Private todo list file not found.")
+        
+def add_todo():
+    with open("../private/private_todo_list.md", "r") as file:
+        # Read the file and store it in a list
+        content = file.read()
+    content = content.split("\n")
+    ans = input("What item do you want to add to the list?\n")
+    new_content = "\n".join(content + [ans])
+    with open("../private/private_todo_list.md", "w") as file:
+        file.write(new_content)
 
 # List functions that won't make main() move forward
 end_functions_dictionary = {
-    "end_fun":[rand_task,thoughts,rand_dex],
+    "end_fun":[rand_task, thoughts, rand_dex, show_todo, add_todo],
     "end_fun_name":[]
     }
 for i in end_functions_dictionary["end_fun"]:

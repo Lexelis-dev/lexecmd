@@ -3,44 +3,50 @@ correct = {
     # Level1
     "main":{"adhd":["add"],
             "draw":["drawing"],
-            "anxiety":None},
+            "anxiety":None,
+            "todo":None
+    },
     
     # Level2
     "adhd":{
         "stuck":["stk"],
         "overwhelmed":["ovm","ovwhel"]
-            },
+    },
     "draw":{
         "idea":None,
         "motivation":["mtv","mtvt",'motiv']
-            },
+    },
     "anxiety":{
         "talking":["talk"]
-        },
+    },
+    "todo":{
+        "show_todo":["show"],
+        "add_todo":["add"]
+    },
     
     # Level3
     "stuck":{
         "rand_task":["task"]
-             },
+    },
     "overwhelmed":{
         "thoughts":None,
         "noises":None,
-        },
+    },
     "idea":{
         "pokemon":["pkm"],
         "kup":None,
-        },
+    },
     "motivation":{
         "sad":None,
         "hard":None
-        },
+    },
     
     #Level4
     "pokemon":{
         "rand_dex":["dex"],
         "eevee":None
-        }
     }
+}
 
 # Greetings for each levels
 greetings = {

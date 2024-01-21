@@ -1,4 +1,4 @@
-documentation = """----------This is the lexecmd v0.19.3 documentation----------
+documentation = """----------This is the lexecmd v0.19.4 documentation----------
 
 General inputs:
     help -> Display a list of available commands
@@ -12,10 +12,9 @@ General inputs:
     documentation -> View  this message
         also : lexedoc
         
-Version : 0.19.3
+Version : 0.19.4
 
-- Fixed some bugs
-- Made the program clearer
+- Added a todo list
 """
 
 #--------------------Import--------------------#
@@ -23,16 +22,10 @@ from random import randint
 import colorama
 import pypokedex
 
-""" """ """
-from private import todo_list
-""" """ """
-
 from helpers import (lexinput, entry, check_levels, print_greeting, translate, lexhelp,
     alias, print_changelogs, error, rand_task, thoughts, rand_dex, end_functions_dictionary)
 from classes import Color, ExitScript, CliSettings
 from variables import correct
-
-
 #--------------------The main functions--------------------#
 def main():
     colorama.init()

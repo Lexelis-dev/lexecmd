@@ -2,6 +2,10 @@
 
 ## v0.19.3
 
+- Added a todo list
+
+## v0.19.3
+
 - Fixed some bugs
 - Made the program clearer
 
