@@ -1,0 +1,1 @@
+from .dictionaries import correct, greetings, temp_greeting

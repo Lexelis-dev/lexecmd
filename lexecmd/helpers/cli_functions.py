@@ -1,5 +1,37 @@
 from classes import Color
 
+
+
+# Dynamic input function changing with current level
+def lexinput(navigation_level):
+    u=""
+    # Write the current levels
+    for i, v in enumerate(navigation_level):
+        if i == len(navigation_level) - 1:
+            u+= v + ">"
+        else:
+            u+= v + "/"
+    return input(u).lower()
+
+# The entry function, will check 
+def entry(navigation_level, correct, greetings):
+        
+    # If check_levels() test passed, will ask the next entry
+    if check_levels(navigation_level, correct):
+        print_greeting(navigation_level, greetings)
+        
+        try: 
+            # Attempt to translate the input, and ask in a formatted way
+            return translate(navigation_level, correct, lexinput(navigation_level))
+        
+        # The current level doesn't have any correct input available
+        # Caused by mistakes in the dictionary 'correct' or unfinished level 
+        except KeyError:
+            error("Input can't be accepted")
+            print(Color.sys_purple + "Exiting",navigation_level[ - 1]+ "\033[39m")
+            # Remove the last level as it will create an infinite loop
+            del navigation_level[-1]
+
 # Check if the levels are correct
 def check_levels(navigation_level, correct):
     check = True

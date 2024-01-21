@@ -1,5 +1,13 @@
 # lexe commands changelogs
 
+## v0.19.2
+
+- Separated the program into more files
+
+## v0.19.1
+
+- Separated the program into multiple files
+
 ## v0.19.0
 
 - Added Pokemon dex randomizer
