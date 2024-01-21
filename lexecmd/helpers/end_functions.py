@@ -1,5 +1,6 @@
 import random
 import pypokedex
+from time import time
 
 from .cli_functions import error
 
@@ -45,14 +46,36 @@ def rand_dex():
     pok=pypokedex.get(dex = r)
     print("The chosen pokemon will be",pok.name,"of the pokedex number",r)
     
+def converting_time(time_left):
+    ignoring=True
+    converted_time = ""
+    unit=["s","m","h"]
+    new_time = time_left // (60**2 * 24)
+    if new_time !=0:
+        time_left -= new_time * (60**2 * 24)
+        converted_time += f"{new_time}d "
+        ignoring = False
+        
+    for i in reversed(range(3)):
+        new_time = time_left // 60**i % 60
+        if new_time != 0 or ignoring!=True:
+            time_left -= new_time * 60**i
+            converted_time += f"{new_time}{unit[i]} "
+            ignoring = False
+    return converted_time
+    
 def show_todo():
     try:
         with open("../private/private_todo_list.md", "r") as file:
             # Read the file and store it in a list
             content = file.read()
-            content = content.split("\n")
+            content = content.split("\n=\n")
+            
         for i, j in enumerate(content):
-            print(f"- [{i}] {j}")
+            imp, diff, time_created, item = j.split("§§")
+            time_since = int(time()) - int(time_created)
+            converted_time = converting_time(time_since)
+            print(f"- {i}° | {imp}! | {diff}# | {converted_time} | {item}")
             
     except FileNotFoundError:
         error("Private todo list file not found.")
@@ -61,11 +84,17 @@ def add_todo():
     with open("../private/private_todo_list.md", "r") as file:
         # Read the file and store it in a list
         content = file.read()
-    content = content.split("\n")
+    content = content.split("\n=\n")
     ans = input("What item do you want to add to the list?\n")
-    new_content = "\n".join(content + [ans])
+    importance = input("How important is the item?\n")
+    difficulty = input("What is its difficulty?\n")
+    current_time = int(time())
+    
+    new_content = f"{importance}§§{difficulty}§§{current_time}§§{ans}"
+    all_content = "\n=\n".join(content + [new_content])
+    
     with open("../private/private_todo_list.md", "w") as file:
-        file.write(new_content)
+        file.write(all_content)
 
 # List functions that won't make main() move forward
 end_functions_dictionary = {

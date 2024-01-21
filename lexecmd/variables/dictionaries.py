@@ -56,6 +56,7 @@ greetings = {
     # Level2
     "adhd":"\nWhat issue is ADHD causing?",
     "draw":"\nWhat help do you need with drawing?",
+    "todo":" ",
     
     # Level3
     "stuck":"\nWould you need a randomized task?",

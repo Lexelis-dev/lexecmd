@@ -1,4 +1,4 @@
-documentation = """----------This is the lexecmd v0.19.4 documentation----------
+documentation = """----------This is the lexecmd v0.20.0 documentation----------
 
 General inputs:
     help -> Display a list of available commands
@@ -12,9 +12,9 @@ General inputs:
     documentation -> View  this message
         also : lexedoc
         
-Version : 0.19.4
+Version : 0.20.0
 
-- Added a todo list
+- More functionalities to the todo list
 """
 
 #--------------------Import--------------------#

@@ -1,5 +1,9 @@
 # lexe commands changelogs
 
+## v0.20.0
+
+- More functionalities to the todo list
+
 ## v0.19.3
 
 - Added a todo list
