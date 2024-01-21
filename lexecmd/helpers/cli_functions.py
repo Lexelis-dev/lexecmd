@@ -1,4 +1,5 @@
-from classes import Color
+from classes import Color, CliSettings
+from variables import greetings, temp_greeting
 
 
 
@@ -14,11 +15,11 @@ def lexinput(navigation_level):
     return input(u).lower()
 
 # The entry function, will check 
-def entry(navigation_level, correct, greetings):
+def entry(navigation_level, correct):
         
     # If check_levels() test passed, will ask the next entry
     if check_levels(navigation_level, correct):
-        print_greeting(navigation_level, greetings)
+        print_greeting(navigation_level)
         
         try: 
             # Attempt to translate the input, and ask in a formatted way
@@ -49,15 +50,18 @@ def check_levels(navigation_level, correct):
     return check
 
 # Print a greeting before asking for input
-def print_greeting(navigation_level, greetings):
-    
-        try:
-            if greetings[navigation_level[len(navigation_level) - 1]] != None:
-                # Attempt to print the gretting for the current level
-                print(str(greetings[navigation_level[len(navigation_level) - 1]]))
-            
-        except KeyError:
-            error("Greeting not found")
+def print_greeting(navigation_level):
+    if CliSettings.remove_greetings == True:
+        greeting = temp_greeting
+    else :
+        greeting = greetings
+    try:
+        if greeting[navigation_level[len(navigation_level) - 1]] != None:
+            # Attempt to print the gretting for the current level
+            print(str(greeting[navigation_level[len(navigation_level) - 1]]))
+        
+    except KeyError:
+        error("Greeting not found")
         
 # Translate a user input
 def translate(navigation_level, correct, ans):

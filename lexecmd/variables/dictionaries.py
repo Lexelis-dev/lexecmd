@@ -63,3 +63,7 @@ greetings = {
 
 # Alternate empty greetings
 temp_greeting = {k: None for k, v in greetings.items() if v is not None}
+
+def toggle_greetings():
+    global greetings, temp_greeting
+    greetings, temp_greeting = temp_greeting, greetings

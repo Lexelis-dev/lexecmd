@@ -1,5 +1,10 @@
 # lexe commands changelogs
 
+## v0.19.3
+
+- Fixed some bugs
+- Made the program clearer
+
 ## v0.19.2
 
 - Separated the program into more files

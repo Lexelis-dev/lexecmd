@@ -1,4 +1,4 @@
-documentation = """----------This is the lexecmd v0.19.2 documentation----------
+documentation = """----------This is the lexecmd v0.19.3 documentation----------
 
 General inputs:
     help -> Display a list of available commands
@@ -12,9 +12,10 @@ General inputs:
     documentation -> View  this message
         also : lexedoc
         
-Version : 0.19.2
+Version : 0.19.3
 
-- Separated  the program into multiple files
+- Fixed some bugs
+- Made the program clearer
 """
 
 #--------------------Import--------------------#
@@ -28,8 +29,8 @@ from private import todo_list
 
 from helpers import (lexinput, entry, check_levels, print_greeting, translate, lexhelp,
     alias, print_changelogs, error, rand_task, thoughts, rand_dex, end_functions_dictionary)
-from classes import Color, ExitScript
-from variables import correct, greetings, temp_greeting
+from classes import Color, ExitScript, CliSettings
+from variables import correct
 
 
 #--------------------The main functions--------------------#
@@ -41,8 +42,7 @@ def main():
     # Call entry functions and compare answers
     def inner_main(navigation_level):
         while True:
-            global entry, greetings, temp_greeting
-            ans = entry(navigation_level, correct, greetings)
+            ans = entry(navigation_level, correct)
             
             # Leaving current level
             if ans == "exit":
@@ -79,7 +79,10 @@ def main():
                 
             # User asks for removing greetings
             elif ans in ("toggle_greetings","toggle_greeting","tglgrt"):
-                greetings,temp_greeting=temp_greeting,greetings
+                if CliSettings.remove_greetings == False :
+                    CliSettings.remove_greetings = True
+                else :
+                    CliSettings.remove_greetings = False
                 
             elif ans in ("documentation","lexedoc"):
                 print(documentation)

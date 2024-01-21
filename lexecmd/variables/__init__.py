@@ -1,1 +1,1 @@
-from .dictionaries import correct, greetings, temp_greeting
+from .dictionaries import correct, greetings, temp_greeting, toggle_greetings
