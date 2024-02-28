@@ -3,6 +3,7 @@ import pypokedex
 from time import time
 
 from .cli_functions import error
+from .maths_end_functions import calculator, converter
 
 stuck_list=[
     "Voice training",
@@ -75,30 +76,57 @@ def show_todo():
             imp, diff, time_created, item = j.split("§§")
             time_since = int(time()) - int(time_created)
             converted_time = converting_time(time_since)
-            print(f"- {i}° | {imp}! | {diff}# | {converted_time} | {item}")
+            print(f"- {i}° | {imp}! | {diff}# | {converted_time}| {item}")
             
     except FileNotFoundError:
         error("Private todo list file not found.")
         
 def add_todo():
-    with open("../private/private_todo_list.md", "r") as file:
-        # Read the file and store it in a list
-        content = file.read()
-    content = content.split("\n=\n")
-    ans = input("What item do you want to add to the list?\n")
-    importance = input("How important is the item?\n")
-    difficulty = input("What is its difficulty?\n")
-    current_time = int(time())
-    
-    new_content = f"{importance}§§{difficulty}§§{current_time}§§{ans}"
-    all_content = "\n=\n".join(content + [new_content])
-    
-    with open("../private/private_todo_list.md", "w") as file:
-        file.write(all_content)
+    try:
+        with open("../private/private_todo_list.md", "r") as file:
+            # Read the file and store it in a list
+            content = file.read()
+        content = content.split("\n=\n")
+        ans = input("What item do you want to add to the list?\n")
+        importance = input("How important is the item?\n")
+        difficulty = input("What is its difficulty?\n")
+        current_time = int(time())
+        
+        new_content = f"{importance}§§{difficulty}§§{current_time}§§{ans}"
+        all_content = "\n=\n".join(content + [new_content])
+        
+        with open("../private/private_todo_list.md", "w") as file:
+            file.write(all_content)
+            
+    except FileNotFoundError:
+        error("Private todo list file not found.")
+        
+def del_todo():
+    try:
+        with open("../private/private_todo_list.md", "r") as file:
+            # Read the file and store it in a list
+            content = file.read()
+        content = content.split("\n=\n")
+        ans = int(input())
+        
+        print(f"Removing :\n{content[ans]}")
+        del content[ans]
+        new_content = "\n=\n".join(content)
+        
+        with open("../private/private_todo_list.md", "w") as file:
+            file.write(new_content)
+            
+    except FileNotFoundError:
+        error("Private todo list file not found.")
+        
+def dice():
+    ans = int(input("d"))
+    print(f"You rolled a {random.randint(0, ans)}")
 
 # List functions that won't make main() move forward
 end_functions_dictionary = {
-    "end_fun":[rand_task, thoughts, rand_dex, show_todo, add_todo],
+    "end_fun":[rand_task, thoughts, rand_dex, show_todo, add_todo, del_todo,
+               dice, calculator, converter],
     "end_fun_name":[]
     }
 for i in end_functions_dictionary["end_fun"]:

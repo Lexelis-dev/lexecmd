@@ -4,7 +4,9 @@ correct = {
     "main":{"adhd":["add"],
             "draw":["drawing"],
             "anxiety":None,
-            "todo":None
+            "todo":None,
+            "games":["game"],
+            "maths":["math","mth"]
     },
     
     # Level2
@@ -21,7 +23,15 @@ correct = {
     },
     "todo":{
         "show_todo":["show"],
-        "add_todo":["add"]
+        "add_todo":["add"],
+        "del_todo":["del", "delete", "remove"]
+    },
+    "games":{
+        "ttrpg":["dnd"]
+    },
+    "maths":{
+        "calculator":["calc"],
+        "converter":["convert","conv"]
     },
     
     # Level3
@@ -45,6 +55,9 @@ correct = {
     "pokemon":{
         "rand_dex":["dex"],
         "eevee":None
+    },
+    "ttrpg":{
+        "dice":None
     }
 }
 

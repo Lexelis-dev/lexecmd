@@ -1,4 +1,4 @@
-documentation = """----------This is the lexecmd v0.20.0 documentation----------
+documentation = """----------This is the lexecmd v0.21.0 documentation----------
 
 General inputs:
     help -> Display a list of available commands
@@ -12,9 +12,9 @@ General inputs:
     documentation -> View  this message
         also : lexedoc
         
-Version : 0.20.0
+Version : 0.21.0
 
-- More functionalities to the todo list
+- Added a calcultor in maths
 """
 
 #--------------------Import--------------------#
@@ -97,5 +97,4 @@ main()
 #To do : 
 #add python chat;
 # study;
-# draw;
-# todo+save
+# draw
