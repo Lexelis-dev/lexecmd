@@ -12,9 +12,9 @@ General inputs:
     documentation -> View  this message
         also : lexedoc
         
-Version : 0.21.0
+Version : 0.21.1
 
-- Added a calcultor in maths
+- Added a calculator in math
 """
 
 #--------------------Import--------------------#

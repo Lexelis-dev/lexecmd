@@ -6,7 +6,7 @@ correct = {
             "anxiety":None,
             "todo":None,
             "games":["game"],
-            "maths":["math","mth"]
+            "math":["mth"]
     },
     
     # Level2
@@ -29,7 +29,7 @@ correct = {
     "games":{
         "ttrpg":["dnd"]
     },
-    "maths":{
+    "math":{
         "calculator":["calc"],
         "converter":["convert","conv"]
     },

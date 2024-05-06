@@ -3,7 +3,7 @@ import pypokedex
 from time import time
 
 from .cli_functions import error
-from .maths_end_functions import calculator, converter
+from .math_end_functions import calculator, converter
 
 stuck_list=[
     "Voice training",

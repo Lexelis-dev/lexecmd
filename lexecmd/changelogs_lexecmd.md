@@ -1,5 +1,9 @@
 # lexe commands changelogs
 
+## v0.21.0
+
+- Added unit convertions in >math
+
 ## v0.20.0
 
 - More functionalities to the todo list
